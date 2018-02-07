@@ -25,7 +25,7 @@ There are many [certified Cloud Foundry providers](https://www.cloudfoundry.org/
 
 For this exercise you will use a simple event registration application. The application allows users to register for events and has an admin panel for creating events and handling registrations. More importantly, though, the application demonstrates the use of backing services for a cloud application.
 
-1. Download the [sample application here](https://github.com/edshee/CNDWorkshops/blob/master/part1/event-registration-app.zip?raw=true)
+1. Download the [sample application here](https://github.com/edshee/CNDWorkshops/blob/master/part1/event-registration.zip?raw=true)
 2. Unzip the folder
 3. Open a terminal (command prompt on windows) and navigate to the unzipped folder using the `cd` command e.g.
 ```
@@ -53,7 +53,7 @@ So you now have some application code on your machine. What the code does is obv
 
 **Logging in to Cloud Foundry**
 
-Before we can deploy our application we need to tell the command line tool where to put it. From your terminal:
+Before we can deploy our application we need to tell the command line tool where to send it. From your terminal:
 1. Set the API endpoint for the CLI:
 ```
 cf api https://api.eu-gb.bluemix.net
@@ -135,6 +135,7 @@ Now that we have a working application. What happens if we want to make changes?
 <p>Made by the IBM Cloud team</p>
 ```
 Replace the text inside the `<p>` tags to say that you made this application instead.
+
 3. Save the file.
 
 **Pushing the change**
@@ -144,7 +145,9 @@ We could push the app again by using the `cf push` command but that would overwr
 cf push event-registration-new
 ```
 Once this has finished deploying you will be presented with a new URL and will be able to see your changes there...
+
 **but wait...**
+
 ...it is now saying `unable to connect to database` again.
 
 One solution would be to create a new database and bind it to our new app. Another would be to bind our existing database to the new app. Better still though would be to fix the configuration so that all new deployments of this application connect to the database we created. We do this through the **manifest file**.
@@ -163,6 +166,7 @@ services:
     - cloudant-event-db
 ```
 This will let the Cloud Foundry platform know that you want it to automatically bind to an existing database called `cloudant-event-db`.
+
 4. Save your changes to the manifest file.
 
 You can now redeploy the new version of the application using our favourite command:
@@ -176,7 +180,7 @@ cf push
 
 You have now successfully deployed two versions of an application - both accessible from different routes. Your bonus task is to see if you can figure out how to route **all** traffic from the original `event-registration` app to the new `event-registration-new` app. *Hint: you will need to use the "cf map-route" command.*
 
-You can find the full specification for application manifest files [here.](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html)
+For further reading you can find the full specification for application manifest files [here.](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html)
 
 
 
