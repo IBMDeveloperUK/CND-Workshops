@@ -123,3 +123,61 @@ cf restart event-registration
 ```
 Once your app has restarted, go to the URL of your app in the browser again to check that it's working. You should see some dummy events listed. If you forget the URL or name of an app you can use `cf apps`.
 
+## Deploying changes
+
+Now that we have a working application. What happens if we want to make changes? In later sessions we'll learn how to set up continuous delivery pipelines with automated testing but for now let's do it the manual way:
+
+**Modfying the application**
+
+1. Open the `public/index.html` file in a text/code editor of your choice.
+2. Make a change to the code at line 89 where it says
+```
+<p>Made by the IBM Cloud team</p>
+```
+Replace the text inside the `<p>` tags to say that you made this application instead.
+3. Save the file.
+
+**Pushing the change**
+
+We could push the app again by using the `cf push` command but that would overwrite our previous app. What if we wanted to run both versions instead? Application names must be unique within each org and space (think of these kind of like a working directory) so to avoid overwriting the old app we can push our changes with a new name:
+```
+cf push event-registration-new
+```
+Once this has finished deploying you will be presented with a new URL and will be able to see your changes there...
+**but wait...**
+...it is now saying `unable to connect to database` again.
+
+One solution would be to create a new database and bind it to our new app. Another would be to bind our existing database to the new app. Better still though would be to fix the configuration so that all new deployments of this application connect to the database we created. We do this through the **manifest file**.
+
+**Updating the manifest**
+
+In your application directory you should have a file named `manifest.yml`:
+1. Open the manifest file in a text/code editor.
+2. Change the name of the application to `event-registration-new`:
+```
+name: event-registration-new
+```
+3. Add the following line at the bottom of the `manifest.yml` file:
+```
+services:
+    - cloudant-event-db
+```
+This will let the Cloud Foundry platform know that you want it to automatically bind to an existing database called `cloudant-event-db`.
+4. Save your changes to the manifest file.
+
+You can now redeploy the new version of the application using our favourite command:
+```
+cf push
+```
+
+*Note: if you look closely at the logs while the app is deploying you'll notice a line like this* `Binding service cloudant-event-db to app event-registration-new in org...`
+
+### Success
+
+You have now successfully deployed two versions of an application - both accessible from different routes. Your bonus task is to see if you can figure out how to route **all** traffic from the original `event-registration` app to the new `event-registration-new` app. *Hint: you will need to use the "cf map-route" command.*
+
+You can find the full specification for application manifest files [here.](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html)
+
+
+
+
