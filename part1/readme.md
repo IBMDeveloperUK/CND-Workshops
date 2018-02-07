@@ -1,9 +1,9 @@
 # Workshop 1
-## Getting started with Cloud Foundry
+# Getting started with Cloud Foundry
 
 In this workshop you will deploy your first application to Cloud Foundry, make changes to the application, redeploy the app and explore the Cloud Foundry CLI (command line interface).
 
-### Before you begin
+## Before you begin
 
 To complete this workshop you will need:
 - To download and install the Cloud Foundry CLI
