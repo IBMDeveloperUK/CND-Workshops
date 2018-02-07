@@ -21,4 +21,10 @@ There are many [certified Cloud Foundry providers](https://www.cloudfoundry.org/
 
 ## Downloading the sample applications
 
-For this exercise you will use a simple event registration application. 
+For this exercise you will use a simple event registration application. The application allows users to register for events and has an admin panel for creating events and handling registrations. More importantly, though, the application demonstrates the use of backing services for a cloud application.
+
+1. Download the [sample application here](https://github.com/edshee/CNDWorkshops/blob/master/part1/event-registration-app.zip?raw=true)
+2. Unzip the folder
+3. Open a terminal (command prompt on windows) and navigate to the unzipped folder using the `cd` command e.g.
+
+    cd /Users/ed/Downloads/event-registration
