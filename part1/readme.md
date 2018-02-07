@@ -58,11 +58,13 @@ Before we can deploy our application we need to tell the command line tool where
 ```
 cf api https://api.eu-gb.bluemix.net
 ```
-*Note: the address above is for the UK region of IBM Cloud. To work with another geographic region simply swap the 'eu-gb' part for:
+
+Note: the address above is for the UK region of IBM Cloud. To work with another geographic region simply swap the 'eu-gb' part for:
 - 'ng' (US South)
 - 'us-east' (US East)
 - 'eu-de' (Germany)
-- 'au-syd' (Australia)*
+- 'au-syd' (Australia)
+
 2. Log in to the region:
 ```
 cf login
@@ -102,6 +104,7 @@ Let's go ahead and create a database for our application:
 cf create-service cloudantNoSQLDB Lite cloudant-event-db
 ```
 This command tells Cloud Foundry to create a new instance of the `cloudantNoSQLDB` database, use the `Lite` plan (which is free) and name the service `cloudant-event-db`. Cloudant is a cloud native implementation of [Apache CouchDB](http://couchdb.apache.org/). You can read more about it [here](https://www.ibm.com/uk-en/marketplace/database-management).
+
 *Note: if you want details on the usage of a cf command you can type "cf COMMAND_NAME --help"*
 
 **Binding a service**
