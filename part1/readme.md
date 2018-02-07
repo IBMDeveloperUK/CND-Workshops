@@ -1,5 +1,4 @@
-# Workshop 1
-# Getting started with Cloud Foundry
+# Workshop 1 - Getting started with Cloud Foundry
 
 In this workshop you will deploy your first application to Cloud Foundry, make changes to the application, redeploy the app and explore the Cloud Foundry CLI (command line interface).
 
@@ -20,3 +19,6 @@ There are many [certified Cloud Foundry providers](https://www.cloudfoundry.org/
 2. Verify your account via the email it sends you
 3. Log in to your IBM Cloud account
 
+## Downloading the sample applications
+
+For this exercise you will use a simple event registration application. 
