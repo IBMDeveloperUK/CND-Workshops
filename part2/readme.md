@@ -123,6 +123,7 @@ Let's test this app by running it on our local machine:
 2. Open a web browser and type in `http://localhost:3000`. It should return the message `Hello Cloud Native Developers`.
 
 **Optional**
+
 3. If you have a REST client installed, such as [Postman](https://www.getpostman.com/), you can try posting some text to the `/api/capitalise` endpoint to test that it comes back in capitals.
 
 ## Committing your changes
