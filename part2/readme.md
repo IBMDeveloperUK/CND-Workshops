@@ -67,6 +67,7 @@ The application we are building is a simple API that takes a string and converts
 To serve our API we will need a webserver. [Express](https://expressjs.com/) is a lightweight webserver for Node.js. We also need a middleware module to parse the body of an incoming POST request.
 
 **Install Express**
+
 Node.js has a package manager called [npm](https://www.npmjs.com/) (others are also available) which makes it super easy to install modules for our application. If we remember our 12-factor app rules, one of them is to [explicitly declare and isolate dependencies](https://12factor.net/dependencies).
 
 - Install the express module and body-parser modules using the command `npm install --save express body-parser`.
@@ -120,6 +121,7 @@ The other lines of code pull in dependencies, activate middleware, specify the e
 Let's test this app by running it on our local machine:
 1. From your terminal run the command `node server.js` from your application directory. You should see the response `Server listening on port: 3000`.
 2. Open a web browser and type in `http://localhost:3000`. It should return the message `Hello Cloud Native Developers`.
+
 **Optional**
 3. If you have a REST client installed, such as [Postman](https://www.getpostman.com/), you can try posting some text to the `/api/capitalise` endpoint to test that it comes back in capitals.
 
@@ -245,6 +247,7 @@ We now have a neat way of automatically updating our cloud app just by pushing c
 Because our application is an API it would be easy to assume that we can only test it once it is running. We definitely need to do that but we can also test individual pieces of functionality using [unit tests](https://en.wikipedia.org/wiki/Unit_testing).
 
 **Writing the test**
+
 Let's write a unit test to make sure the application correctly converts text to capital letters:
 1. Modify the bottom of your `server.js` file to include the following code:
 ```javascript
@@ -280,6 +283,7 @@ ok 1 should be equal
 Which means that our unit test is passing.
 
 **Adding the test to the delivery pipeline**
+
 Now that we know our tests work locally we want to run them automatically in our delivery pipeline.
 1. Back in your pipeline, click the gear icon on your `Build` stage and click `Configure Stage`.
 2. Rename your stage `Build + Unit Test`.
@@ -297,6 +301,7 @@ node test.js
 5. Save the stage.
 
 **Checking that it works**
+
 Let's update our repo with the new code we've written to test our app. From your terminal:
 1. `git add -A`
 2. `git commit -m "added unit tests"`
@@ -357,6 +362,7 @@ Finally we rename our applications to reflect the fact that our new version is l
 The steps outlined above can be configured further if there are multiple instances of an app running. We can chose to add delays, ramp up or down instances and/or keep more versions of an app running.
 
 **Checking it all works**
+
 Try making some changes to the code again and then push them to the code repo on GitHub. This time keep refreshing the URL as your application deploys. You'll notice the app never goes down but at some point you switch over to the new version.
 
 ## Optional Extra - Additional stages
