@@ -8,3 +8,8 @@ This repository contains all of the slides, workshop instructions and sample app
 - [Sample Application](https://github.com/edshee/CNDWorkshops/blob/master/part1/event-registration-app.zip?raw=true)
 - [Workshop Instructions](https://github.com/edshee/CNDWorkshops/blob/master/part1/readme.md)
 
+## Part 2
+- [Folder](https://github.com/edshee/CNDWorkshops/tree/master/part2)
+- [Lecture Slides](https://github.com/edshee/CNDWorkshops/raw/master/part1/CND%20Part%202%20Presentation.pdf)
+- [Workshop Instructions](https://github.com/edshee/CNDWorkshops/blob/master/part2/readme.md)
+

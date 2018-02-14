@@ -327,7 +327,7 @@ Let's take a closer look at what each of these commands is doing:
 ```
 cf delete -f "${CF_APP}"-old
 ```
-This will delete the old version of the app we were keeping in case of rollbacks (if it exists).
+This will delete the old version of the app we were keeping in case of rollbacks (if it exists). Often we will want to keep this running but for the sake of this workshop we will delete it to free up space in your IBM Cloud account.
 ```
 cf push "${CF_APP}"-new -m 128M -n UNIQUE-NAME-new
 ```
@@ -356,6 +356,12 @@ Finally we rename our applications to reflect the fact that our new version is l
 
 The steps outlined above can be configured further if there are multiple instances of an app running. We can chose to add delays, ramp up or down instances and/or keep more versions of an app running.
 
+**Checking it all works**
+Try making some changes to the code again and then push them to the code repo on GitHub. This time keep refreshing the URL as your application deploys. You'll notice the app never goes down but at some point you switch over to the new version.
+
+## Optional Extra - Additional stages
+
+Have a go at creating extra stages for your delivery pipeline. Ideally once our app has deployed we want to run tests against it to check the API works in the live environment. After that we may want to deploy it again (if we assume the first deployment is "dev" then we can then deploy to "prod"). We may also want to deploy to other geographic regions.
 
 
 
