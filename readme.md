@@ -21,5 +21,6 @@ This repository contains all of the slides, workshop instructions and sample app
 
 ## Part 4
 - [Folder](/part4)
+- [Lecture Slides](https://github.com/edshee/CNDWorkshops/raw/master/part4/CND%20Part%204%20Presentation.pdf)
 - [Sample Application](https://github.com/edshee/zipkin-js-example/)
 - [Workshop Instructions](/part4/readme.md)
