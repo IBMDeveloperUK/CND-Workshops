@@ -120,17 +120,17 @@ Where `UNIQUE_NAME` is a unique hostname for the service (e.g es-zipkin-frontend
 *Note: we've specified the hostnames for each app but not given them a name. That was all taken care of using the manifest.yml file. If you looked closely at the deployment you may have seen that it's named your services app-frontend and app-backend.*
 
 Both services are now up and running but they currently don't know about the Zipkin server we created earlier so they don't have anywhere to send tracing information to. Let's fix that by setting some environment variables using:
-- ```
+```
 cf set-env app-frontend ZIPKIN_URL 'YOUR_ZIPKIN_SERVER.eu-gb.mybluemix.net'
 ```
 and
-- ```
+```
 cf set-env app-backend ZIPKIN_URL 'YOUR_ZIPKIN_SERVER.eu-gb.mybluemix.net'
 ```
 Don't forget to replace `YOUR_ZIPKIN_SERVER` with the url from the first step of the workshop.
 
 Finally we need to tell the front end about the back end service:
-- ```
+```
 cf set-env app-frontend BACKEND_URL 'YOUR_BACKEND_URL.eu-gb.mybluemix.net'
 ```
 
