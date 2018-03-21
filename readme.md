@@ -18,3 +18,8 @@ This repository contains all of the slides, workshop instructions and sample app
 - [Lecture Slides](https://github.com/edshee/CNDWorkshops/raw/master/part3/CND%20Part%203%20Presentation.pdf)
 - [Sample Application](https://github.com/IBM-Cloud/application-log-analysis)
 - [Workshop Instructions](https://github.com/edshee/CNDWorkshops/blob/master/part3/readme.md)
+
+## Part 4
+- [Folder](/part4)
+- [Sample Application](https://github.com/edshee/zipkin-js-example/)
+- [Workshop Instructions](/part4/readme.md)
